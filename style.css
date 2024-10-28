@@ -106,7 +106,7 @@ nav a.active {
 }
 
 .info p {
-    font-size: 14px;
+    margin: 5px 0;
 }
 
 .img-container {
@@ -157,7 +157,8 @@ nav a.active {
 }
 
 .discr-container {
-    font-size: 12px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
     font-style: italic;
     padding-left: 10px;
 }
@@ -205,9 +206,3 @@ nav a.active {
         width: 600px;
         height: auto;
     } 
-        .info p {
-    font-size: 16px;
-    }
-    .discr-container {
-    font-size: 14px;
-    }
