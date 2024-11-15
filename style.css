@@ -3,7 +3,7 @@ body {
     background: white;
     display: flex;
     flex-direction: column;
-    font-family: Helvetica, 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', serif;
     margin: 0;
     padding: 0;
 }
@@ -32,20 +32,15 @@ body {
     font-weight: normal;
     line-height: 36px;
     color: black;
-    font-family: 'Helvetica', 'DM Sans', sans-serif;
+    font-family: 'Funnel Display', serif;
     margin-top: 10px;
     white-space: nowrap;
     box-sizing: border-box; 
-}
-
-.logo a {
     text-decoration: none;
-    color: black;
 }
 
 .logo a:hover {
-    font-family: Georgia, serif;
-    text-decoration: underline;
+    font-family: Trocchi, serif;
     font-style: italic;
     padding-right: 4px;
 }
@@ -62,21 +57,23 @@ nav {
 
 nav a {
     font-size: 20px;
-    line-height: 22px;
+    font-family: 'Funnel Display', serif;
     text-decoration: underline;
     color: black;
     cursor: pointer;
 }
 
 nav a:hover {
-    font-family: Georgia, serif;
+    font-family: Trocchi, serif;
     font-style: italic;
+    padding-right: 4px;
 }
 
 nav a.active {
-    font-family: Georgia, serif;
+    font-family: Trocchi, serif;
     font-style: italic;
     text-decoration: underline; 
+    padding-right: 4px;
 }
 
 .main-container {
@@ -110,25 +107,36 @@ nav a.active {
 
 .info {
     height: 100px;
+    overflow: hidden;
 }
 
 .info h2 {
     font-size: 24px;
     font-weight: normal;
-    margin: 0;
-    color: black;
-    font-family:  Helvetica, sans-serif;
+    font-family: Funnel Display, sans;
+    margin-bottom: 6px;
 }
-
 .info p {
-    margin: 5px 0;
+    font-family: Instrument Sans, sans;
+    line-height: 1;
+    margin: 0;
 }
-
+.info a:link {
+    color: black;
+    font-family: Instrument Serif, serif;
+    text-decoration: underline;
+    line-height: 1;
+    margin: 0;
+}
+.info a:visited {
+        color: black;
+}
 .img-container {
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
     overflow: hidden;
+    position: relative;
 }
 
 .img-container img {
@@ -136,6 +144,16 @@ nav a.active {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+}
+
+.img-container .icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    opacity: 0.7;
+    font-size: 24px;
+    z-index: 10;
 }
 
 .iframe-container {
@@ -150,6 +168,29 @@ nav a.active {
   width: 100%;
   height: 100%;
   border: none; 
+}
+
+.iframe-container .icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    opacity: 0.7;
+    font-size: 48px;
+    z-index: 10;
+    text-decoration: none; 
+}
+.iframe-container .icon a{
+    color: black;
+    opacity: 0.7;
+}
+.iframe-container .icon:hover{
+    color: black;
+    opacity: 1;
+}
+.iframe-container .icon:visited{
+    color: black;
+    opacity: 0.7;
 }
 
 .arrows-wrapper {
@@ -172,7 +213,7 @@ nav a.active {
 }
 
 .discr-container {
-    font-family: Helvetica, sans-serif;
+    font-family: Instrument Sans, serif;
     font-size: 14px;
     font-style: italic;
     padding-left: 10px;
@@ -203,34 +244,55 @@ nav a.active {
     transition: transform 0.3s ease-in-out;
 }
 
-/*@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #444444;
-        color: white;
+@media (min-width: 701px) {
+    .img-container .icon {
+        display: none;
     }
-
-    h1 {
-        color: white;
+    .iframe-container .icon {
+        display: block; 
     }
-    .info h2 {
-        color: white;
-    }
-
-   .arrow_left, .arrow_right {
-        color: #39FF14; 
-    }
-}*/
+}
 
 @media (min-width: 768px) {
     .logo a {
         font-size: 48px;
     }
     .zoomed-image {
-    max-width: 70vw;
-    max-height: 70vw;
+        max-width: 70vw;
+        max-height: 70vw;
     }
     .scroll-box {
         width: 600px;
         height: auto;
+    }
+    
+    #anim-container {
+        height: 25em;
+    }
+    #board {
+        font-size: 3em; 
+    }
+    .flap {
+        width: 1em; 
+        height: 1.5em; 
     } 
+    
+    #explanationText {
+        font-size: 1.5em; 
+    }
 }
+
+/*@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #fc4022;
+    }
+    .arrow_left, .arrow_right {
+        color: #00FF00;
+    }
+    #explanationText {
+        color: #00ff00;
+    }
+    .flap { 
+        color: #00ff00;
+    }
+}*/
