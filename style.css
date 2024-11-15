@@ -13,6 +13,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
+    gap: 10px; 
     overflow: visible;
     position: sticky;
     top: 0;
@@ -58,6 +59,7 @@ nav {
 nav a {
     font-size: 20px;
     font-family: 'Funnel Display', serif;
+    line-height: 22px;
     text-decoration: underline;
     color: black;
     cursor: pointer;
@@ -88,13 +90,13 @@ nav a.active {
 }
 .content {
     display: flex;
-    justify-content: left;
+    justify-content: flex-start; 
     align-items: flex-start;
-    gap: 10px;
+    gap: 10px; 
     margin-left: 10px;
     overflow-x: auto; 
-    white-space: nowrap; 
     max-width: 100%;
+    height: auto;
 }
 
 .scroll-box {
@@ -106,31 +108,40 @@ nav a.active {
 }
 
 .info {
-    height: 100px;
+    height: 120px;
     overflow: hidden;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .info h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: normal;
     font-family: Funnel Display, sans;
     margin-bottom: 6px;
 }
+
 .info p {
     font-family: Instrument Sans, sans;
-    line-height: 1;
+    line-height: 1.2;
+    font-size: 16px;
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 .info a:link {
     color: black;
     font-family: Instrument Serif, serif;
     text-decoration: underline;
-    line-height: 1;
     margin: 0;
 }
+
 .info a:visited {
-        color: black;
+    color: black;
 }
+
 .img-container {
     width: 100%;
     height: auto;
@@ -144,6 +155,30 @@ nav a.active {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+}
+
+.img-container .icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    opacity: 0.7;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.iframe-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; 
+  position: relative;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none; 
 }
 
 .img-container .icon {
@@ -213,9 +248,9 @@ nav a.active {
 }
 
 .discr-container {
-    font-family: Instrument Sans, serif;
+    font-family: Funnel Sans, serif;
     font-size: 14px;
-    font-style: italic;
+    font-weight: 300;
     padding-left: 10px;
 }
     
@@ -257,6 +292,12 @@ nav a.active {
     .logo a {
         font-size: 48px;
     }
+    .info h2 {
+        font-size: 26px;
+    }
+    .info p {
+        font-size: 18px;
+    }   
     .zoomed-image {
         max-width: 70vw;
         max-height: 70vw;
@@ -265,20 +306,8 @@ nav a.active {
         width: 600px;
         height: auto;
     }
-    
-    #anim-container {
-        height: 25em;
-    }
-    #board {
-        font-size: 3em; 
-    }
-    .flap {
-        width: 1em; 
-        height: 1.5em; 
-    } 
-    
-    #explanationText {
-        font-size: 1.5em; 
+    .discr-container {
+        font-size: 16px;
     }
 }
 
