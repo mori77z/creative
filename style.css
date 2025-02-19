@@ -28,7 +28,8 @@ body {
     padding-top: 10px;
     width: 100%;
 }
-.moritz a{
+
+.moritz {
     font-size: 30px;
     display: inline-block;
 }
