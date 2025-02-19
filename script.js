@@ -7,29 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let isFlipping = false;
+
     function randomChar() {
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        return chars[Math.floor(Math.random() * chars.length)];
+        const symbols = "♡❦➳❧☭☯︎☆★✧❥•⚹㊪✱☩✈𝓖𝄞♫♠♤🂢✭";
+        return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
     function glitchText(element, originalText, duration = 300) {
         if (isFlipping) return;
         isFlipping = true;
 
-        let scrambledText = originalText.split("").map(char =>
-            char === " " ? " " : randomChar()
-        ).join("");
+        // Generate a string with exactly 10 random Unicode symbols
+        let scrambledText = Array.from({ length: 10 }, () => randomChar()).join("");
 
-        element.textContent = scrambledText;
+        element.textContent = scrambledText; // Apply the 10-symbol glitch effect
 
         setTimeout(() => {
-            element.textContent = originalText;
+            element.textContent = originalText; // Restore original text after duration
             isFlipping = false;
         }, duration);
     }
 
     let lastScrollTop = 0;
     let ticking = false;
+
     window.addEventListener("scroll", function () {
         if (!ticking) {
             requestAnimationFrame(() => {
