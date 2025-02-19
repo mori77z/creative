@@ -1,3 +1,38 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const moritzElement = document.querySelector(".moritz");
+    let isFlipping = false;
+
+    function randomChar() {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        return chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    function glitchText(element, originalText, duration = 300) {
+        if (isFlipping) return;
+        isFlipping = true;
+
+        let scrambledText = originalText.split("").map(char => 
+            char === " " ? " " : randomChar()
+        ).join("");
+
+        element.textContent = scrambledText;
+
+        setTimeout(() => {
+            element.textContent = originalText;
+            isFlipping = false;
+        }, duration);
+    }
+
+    // Glitch bei Scrollbewegung (> 50px Unterschied)
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.scrollY;
+        if (Math.abs(currentScroll - lastScrollTop) > 50) {
+            glitchText(moritzElement, "Mritz Gauss");
+            lastScrollTop = currentScroll;
+        }
+    });
+
 // Select images and create a zoom container
 const images = document.querySelectorAll(".img-container img");
 const zoomedContainer = document.createElement("div");
