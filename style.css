@@ -28,6 +28,10 @@ body {
     padding-top: 10px;
     width: 100%;
 }
+.moritz a{
+    font-size: 30px;
+    display: inline-block;
+}
 
 .logo a {
     font-size: 30px;
