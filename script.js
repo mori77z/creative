@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // === Glitch Effect on Scroll ===
     const moritzElement = document.querySelector(".moritz");
     if (!moritzElement) {
         console.error("Element '.moritz' not found!");
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isFlipping = false;
 
     function randomChar() {
-        const symbols = "✪✹❦☭★❥✱♫♠♞♟♥";
+        const symbols = "✪✹❦☭★❥✱♫♠♞♥";
         return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // === Image Zoom Functionality ===
     const images = document.querySelectorAll(".img-container img");
     if (images.length === 0) {
         console.warn("No images found for zoom functionality.");
