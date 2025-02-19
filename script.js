@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // === Glitch Effect on Scroll ===
     const moritzElement = document.querySelector(".moritz");
-    let isFlipping = false;
+    if (!moritzElement) {
+        console.error("Element '.moritz' not found!");
+        return;
+    }
 
+    let isFlipping = false;
     function randomChar() {
         const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         return chars[Math.floor(Math.random() * chars.length)];
@@ -11,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isFlipping) return;
         isFlipping = true;
 
-        let scrambledText = originalText.split("").map(char => 
+        let scrambledText = originalText.split("").map(char =>
             char === " " ? " " : randomChar()
         ).join("");
 
@@ -23,75 +28,81 @@ document.addEventListener("DOMContentLoaded", function () {
         }, duration);
     }
 
-    // Glitch bei Scrollbewegung (> 50px Unterschied)
     let lastScrollTop = 0;
+    let ticking = false;
     window.addEventListener("scroll", function () {
-        let currentScroll = window.scrollY;
-        if (Math.abs(currentScroll - lastScrollTop) > 50) {
-            glitchText(moritzElement, "Mritz Gauss");
-            lastScrollTop = currentScroll;
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                let currentScroll = window.scrollY;
+                if (Math.abs(currentScroll - lastScrollTop) > 50) {
+                    glitchText(moritzElement, "Mritz Gauss");
+                    lastScrollTop = currentScroll;
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 
-// Select images and create a zoom container
-const images = document.querySelectorAll(".img-container img");
-const zoomedContainer = document.createElement("div");
-const zoomedImage = document.createElement("img");
-
-zoomedContainer.classList.add("zoomed-container");
-zoomedImage.classList.add("zoomed-image");
-zoomedContainer.appendChild(zoomedImage);
-document.body.appendChild(zoomedContainer);
-
-// Function to open zoomed image
-function openZoomedImage(src) {
-    zoomedImage.src = src;
-    zoomedImage.classList.add("active"); // Hinzufügen der aktiven Klasse für Animation
-    zoomedContainer.classList.add("active");
-}
-
-// Function to close zoomed image
-function closeZoomedImage() {
-    zoomedImage.classList.remove("active"); // Entfernen der aktiven Klasse
-    zoomedContainer.classList.remove("active");
-}
-
-// Add event listeners to images to open in zoom
-images.forEach((img) => {
-    img.addEventListener("click", () => {
-        openZoomedImage(img.src);
-    });
-});
-
-// Close zoomed image when clicking outside the image
-zoomedContainer.addEventListener("click", (e) => {
-    if (e.target === zoomedContainer || e.target === zoomedImage) {
-        closeZoomedImage();
+    // === Image Zoom Functionality ===
+    const images = document.querySelectorAll(".img-container img");
+    if (images.length === 0) {
+        console.warn("No images found for zoom functionality.");
+        return;
     }
-});
 
-// Arrow scroll functionality for left/right arrows outside the carousel
-const arrowLeft = document.querySelectorAll(".arrow_left");
-const arrowRight = document.querySelectorAll(".arrow_right");
+    const zoomedContainer = document.createElement("div");
+    const zoomedImage = document.createElement("img");
 
-arrowLeft.forEach(arrow => {
-    arrow.addEventListener("click", function () {
-        const scrollAmount = 300;
-        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+    zoomedContainer.classList.add("zoomed-container");
+    zoomedImage.classList.add("zoomed-image");
+    zoomedContainer.appendChild(zoomedImage);
+    document.body.appendChild(zoomedContainer);
 
-        if (parentContent && parentContent.classList.contains('content')) {
-            parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    function openZoomedImage(src) {
+        zoomedImage.src = src;
+        zoomedImage.classList.add("active");
+        zoomedContainer.classList.add("active");
+    }
+
+    function closeZoomedImage() {
+        zoomedImage.classList.remove("active");
+        zoomedContainer.classList.remove("active");
+    }
+
+    images.forEach((img) => {
+        img.addEventListener("click", () => {
+            openZoomedImage(img.src);
+        });
+    });
+
+    zoomedContainer.addEventListener("click", (e) => {
+        if (e.target === zoomedContainer || e.target === zoomedImage) {
+            closeZoomedImage();
         }
     });
-});
 
-arrowRight.forEach(arrow => {
-    arrow.addEventListener("click", function () {
-        const scrollAmount = 300;
-        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+    // === Arrow Scrolling Functionality ===
+    const arrowLeft = document.querySelectorAll(".arrow_left");
+    const arrowRight = document.querySelectorAll(".arrow_right");
 
-        if (parentContent && parentContent.classList.contains('content')) {
-            parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+    arrowLeft.forEach(arrow => {
+        arrow.addEventListener("click", function () {
+            const scrollAmount = 300;
+            const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+            if (parentContent && parentContent.classList.contains('content')) {
+                parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        });
+    });
+
+    arrowRight.forEach(arrow => {
+        arrow.addEventListener("click", function () {
+            const scrollAmount = 300;
+            const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+            if (parentContent && parentContent.classList.contains('content')) {
+                parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
     });
 });
