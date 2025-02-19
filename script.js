@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isFlipping = false;
 
     function randomChar() {
-        const symbols = "♡❦➳❧☭☯︎☆★✧❥•⚹㊪✱☩✈𝓖𝄞♫♠♤🂢✭";
+        const symbols = "✪✹❦☭★❥✱♫♠♞♟♥";
         return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isFlipping = true;
 
         // Generate a string with exactly 10 random Unicode symbols
-        let scrambledText = Array.from({ length: 10 }, () => randomChar()).join("");
+        let scrambledText = Array.from({ length: 7 }, () => randomChar()).join("");
 
         element.textContent = scrambledText; // Apply the 10-symbol glitch effect
 
