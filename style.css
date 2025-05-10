@@ -255,6 +255,7 @@ background-color: #fff;
     }
     .subtitle {
       font-size: 28px;
+      margin-top: -8px;
       }
     .content {
         margin-left: 20px;
