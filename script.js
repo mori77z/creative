@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             requestAnimationFrame(() => {
                 let currentScroll = window.scrollY;
                 if (Math.abs(currentScroll - lastScrollTop) > 50) {
-                    glitchText(moritzElement, "Mritz Gauss");
+                    glitchText(moritzElement, "Moritz Gauss");
                     lastScrollTop = currentScroll;
                 }
                 ticking = false;
