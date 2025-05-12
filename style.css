@@ -120,12 +120,11 @@ nav a.active {
  }   
 
  .info {
-    min-height: 120px;
-    overflow: hidden;
     word-wrap: break-word;
     overflow-wrap: break-word;
     padding-left: 10px;
     padding-right: 14px;
+    padding-bottom: 10px;
 }
 
 .info h2 {
@@ -138,6 +137,7 @@ nav a.active {
 .info p {
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-weight: 300;
     font-size: 1em;
     margin-top: 6px;
     line-height: 1;
@@ -147,8 +147,8 @@ nav a.active {
     color: black;
     font-family: Times, serif;
     text-decoration: underline;
-    line-height: 1.2;
     font-size: 1.2em;
+    margin-top: 4px;
 }
 
 
@@ -167,7 +167,6 @@ nav a.active {
     align-items: flex-start;
     height: auto;
     width: 400px;
-    text-align: left;
     flex: 0 0 auto;
 }
 
