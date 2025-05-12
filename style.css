@@ -130,6 +130,7 @@ nav a.active {
 .info h2 {
     font-size: 1.6em;
     font-weight: normal;
+    letter-spacing: -1.5px;
     margin-bottom: 6px;
     margin-top: 0;
 }
