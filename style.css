@@ -49,7 +49,6 @@ body {
 
 .logo a {
     font-family: 'Moritz Sans Neue Bold', sans-serif;
-    font-family: Helvetica,  Arial, sans-serif;
     font-size: 2em;
     font-weight: normal;
     line-height: 1;
@@ -62,14 +61,14 @@ body {
 }
 
 .logo a:hover {
-    font-family: Times, serif;
+    font-family: "Instrument Serif", serif;
     font-style: italic;
     letter-spacing: -2px;
     padding-right: 4px;
 }
 
 .subtitle {
-    font-family: Times, serif;
+    font-family: "Instrument Serif", serif;
     font-size: 0.8em;
     font-weight: 300;
     margin-top: -6px;
@@ -95,13 +94,13 @@ nav a {
 }
 
 nav a:hover {
-    font-family: Times, serif;
+    font-family: "Instrument Serif", serif;
     font-style: italic;
     padding-right: 4px;
 }
 
 nav a.active {
-    font-family: Times, serif;
+    font-family: "Instrument Serif", serif;
     font-style: italic;
     text-decoration: underline; 
     padding-right: 4px;
@@ -145,10 +144,12 @@ nav a.active {
 
 .info a {
     color: black;
-    font-family: Times, serif;
+    font-family: "Instrument Serif", serif;
+    font-weight: 300;
     text-decoration: underline;
-    font-size: 1.1em;
+    font-size: 1em;
     margin-top: 4px;
+    overflow: hidden;
 }
 
 
