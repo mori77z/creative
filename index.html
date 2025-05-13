@@ -12,44 +12,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moritz Gauss - Creative Direction Projects</title>
+    <title>Moritz Gauss - Creative Direction</title>
     <meta name="description" content="digital artist and designer - my personal portfolio site">
     <meta name="keywords" content="digital design, webdesign, digital artist, Moritz Gauss, creative coding, designer berlin, design, frontend development, developer">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="banner.png">  
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/material/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/material/favicon.png">
+    <link rel="apple-touch-icon" href="/material/banner.png">  
+    <link rel="stylesheet" href="/assets/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moritz Gauss</title> <!-- wird automatisch angepasst -->
-  <meta name="description" content="digital artist and designer - my personal portfolio site">
-  <meta name="keywords" content="digital design, webdesign, digital artist, Moritz Gauss, creative coding, designer berlin, design, frontend development, developer">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-</head>
-
-<header class="header-container">
-    <div class="logo">
-        <a class="moritz" href="/about">Moritz Gauss</a>
-        <a href="/studio/">Studio</a>
-    </div>
-
-    <h1 class="subtitle">digital artist and designer</h1>
-
-    <nav>
-        <a href="/" class="nav">Web</a>
-        <a href="/creative" class="nav active">Creative</a>
-        <a href="/objects" class="nav">Objects</a>
-        <a href="/concepts" class="nav">Concepts</a>
-    </nav>
-</header>
-
  
  <div class="main-container">
   
@@ -168,41 +140,36 @@
         </div>
         
        <div class="content" >
+        <div class="scroll-box">
         <div class="img-container">
-                <div class="scroll-box">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/atelier3-copyright-moritzgauss.jpeg" alt="Image 1">
         </div>
     </div>
         <div class="scroll-box">
-        <div class="info"></div>
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/atelier5.jpeg" alt="Image 3">
         </div>
     </div>
 
         <div class="scroll-box">
-        <div class="info"></div>
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/atelier4.jpeg" alt="Image 3">
         </div>
     </div>
 
         <div class="scroll-box">
-        <div class="info"></div>
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/IMG_3203.jpeg" alt="Image 3">
         </div>
     </div>
 
         <div class="scroll-box">
-        <div class="info"></div>
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/IMG_3204.jpeg" alt="Image 3">
         </div>
     </div>
 
     <div class="scroll-box">
-        <div class="info"></div>
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/mori77z/material/refs/heads/main/atelier1-copyright-moritzgauss.jpeg" alt="Image 2">
         </div>
@@ -410,34 +377,7 @@
     <img class="zoomed-image" src="" alt="Zoomed Image">
 </div>
 
-<script>
-// Header nachladen
-fetch('/header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('header-placeholder').innerHTML = data;
 
-    // Danach Titel automatisch setzen
-    const path = window.location.pathname.toLowerCase();
-    let page = "Web";
-    if (path.includes("creative")) page = "Creative";
-    else if (path.includes("objects")) page = "Objects";
-    else if (path.includes("concepts")) page = "Concepts";
-    else if (path.includes("about")) page = "About";
-    else if (path.includes("studio")) page = "Studio";
-    document.title = `Moritz Gauss – ${page}`;
-
-    // Aktiven Link markieren
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      const href = link.getAttribute('href').replace(/\/$/, "");
-      if (path.includes(href)) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
-
-    <script src="script.js"></script>
+    <script src="/assets/global.js"></script>
 </body>
 </html>
